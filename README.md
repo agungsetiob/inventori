@@ -17,8 +17,20 @@ composer install
 ```bash
 cp .env.example .env
 ```
-3. Buat database di postgresql
-4. jalankan migration
+3. Generate application key
+```bash
+php artisan key:generate
+```
+4. Buat database di postgresql dan jalankan migration
 ```bash
 php artisan migrate
+```
+
+Before run project
+```bash
+npm install
+```
+then 
+```bash
+npm run dev
 ```
