@@ -21,9 +21,9 @@ cp .env.example .env
 ```bash
 php artisan key:generate
 ```
-4. Buat database di postgresql dan jalankan migration
+4. Buat database di postgresql dan jalankan migration dan seeder
 ```bash
-php artisan migrate
+php artisan migrate --seed
 ```
 
 Before run project
@@ -34,3 +34,5 @@ then
 ```bash
 npm run dev
 ```
+
+Be happy!
