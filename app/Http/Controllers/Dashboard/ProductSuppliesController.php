@@ -127,13 +127,45 @@ class ProductSuppliesController extends Controller
        $sumOutcomeQuantity = ProductSupplies::where('type', 'outcome')->where('product_id', $request->product_id)->sum('quantity');
        $product = Product::findOrFail($request->product_id);
        $quantityUpdated = $product->update([
-        'stock'=>($sumIncomeQuantity - $sumOutcomeQuantity)
+        //'stock'=>($sumIncomeQuantity - $sumOutcomeQuantity)
+        'stock'=>$product->stock + $request->quantity
        ]);
 
        if($created && $quantityUpdated){
         return redirect('/barang-masuk')->with('message', 'data berhasil ditambahkan');
        }
     }
+
+    // public function storeOutcome(Request $request) {
+    //     $this->validate($request, [
+    //         'date'=> ['required'],
+    //         'quantity'=>['required'],
+    //         'product_id'=>['required'],
+    //         //'supplier_id'=>['required'],
+    //     ]);
+
+    //    $created = ProductSupplies::create([
+    //         'product_id'=>$request->product_id,
+    //         //'supplier_id'=>$request->supplier_id,
+    //         'user_id'=>Auth::user()->id,
+    //         'date'=>$request->date,
+    //         'quantity'=>$request->quantity,
+    //         'type'=>'outcome',
+    //         'status'=>'pending'
+            
+    //    ]);
+
+    //    $sumIncomeQuantity = ProductSupplies::where('type', 'income')->where('product_id', $request->product_id)->sum('quantity');
+    //    $sumOutcomeQuantity = ProductSupplies::where('type', 'outcome')->where('product_id', $request->product_id)->sum('quantity');
+    //    $product = Product::findOrFail($request->product_id);
+    //    $quantityUpdated = $product->update([
+    //     'stock'=>$sumIncomeQuantity - $sumOutcomeQuantity
+    //    ]);
+
+    //    if($created && $quantityUpdated){
+    //     return redirect('/barang-permintaan')->with('message', 'data berhasil disimpan');
+    //    }
+    // }
 
     public function storeOutcome(Request $request) {
         $this->validate($request, [
@@ -143,39 +175,46 @@ class ProductSuppliesController extends Controller
             //'supplier_id'=>['required'],
         ]);
 
-       $created = ProductSupplies::create([
-            'product_id'=>$request->product_id,
-            //'supplier_id'=>$request->supplier_id,
-            'user_id'=>Auth::user()->id,
-            'date'=>$request->date,
-            'quantity'=>$request->quantity,
-            'type'=>'outcome',
-            'status'=>'pending'
-            
-       ]);
+        $sumIncomeQuantity = ProductSupplies::where('type', 'income')->where('product_id', $request->product_id)->sum('quantity');
+        $sumOutcomeQuantity = ProductSupplies::where('type', 'outcome')->where('product_id', $request->product_id)->sum('quantity');
+        $product = Product::findOrFail($request->product_id);
+        $stockProduct = $product->stock - $request->quantity;
 
-      $sumIncomeQuantity = ProductSupplies::where('type', 'income')->where('product_id', $request->product_id)->sum('quantity');
-       $sumOutcomeQuantity = ProductSupplies::where('type', 'outcome')->where('product_id', $request->product_id)->sum('quantity');
-       $product = Product::findOrFail($request->product_id);
-       $quantityUpdated = $product->update([
-        'stock'=>($sumIncomeQuantity - $sumOutcomeQuantity)
-       ]);
+        if($stockProduct >= 0){
+            $created = ProductSupplies::create([
+                'product_id'=>$request->product_id,
+                //'supplier_id'=>$request->supplier_id,
+                'user_id'=>Auth::user()->id,
+                'date'=>$request->date,
+                'quantity'=>$request->quantity,
+                'type'=>'outcome',
+                'status'=>'pending'
+                
+            ]);
+            $quantityUpdated = $product->update([
+                'stock'=>$stockProduct
+            ]); 
+        } else {
+            return redirect('/barang-permintaan')->with('error', 'gagal, stok tidak cukup');
+        }
 
-       if($created && $quantityUpdated){
-        return redirect('/barang-permintaan')->with('message', 'data berhasil disimpan');
-       }
+        if($created && $quantityUpdated){
+            return redirect('/barang-permintaan')->with('message', 'data berhasil disimpan');
+        } else {
+            return redirect('/barang-permintaan')->with('error', 'ups ada yang salah nih');
+        }
     }
 
     public function deleteProductSupply($id) {
         $productSupply = ProductSupplies::findOrFail($id);
         $product = Product::findOrFail($productSupply->product_id);
 
-        $deleted = $productSupply->delete();
         $sumIncomeQuantity = ProductSupplies::where('type', 'income')->sum('quantity');
         $sumOutcomeQuantity = ProductSupplies::where('type', 'outcome')->sum('quantity');
         $updated = $product->update([
-            'stock'=>($sumIncomeQuantity - $sumOutcomeQuantity)
+            'stock'=>$product->stock + $productSupply->quantity
         ]);
+        $deleted = $productSupply->delete();
         if($deleted && $updated){
             session()->flash('message', 'berhasil hapus data');
             return response()->json(['message'=> 'success delete data'],200);
@@ -207,7 +246,7 @@ class ProductSuppliesController extends Controller
         $sumIncomeQuantity = ProductSupplies::where('type', 'income')->sum('quantity');
         $sumOutcomeQuantity = ProductSupplies::where('type', 'outcome')->sum('quantity');
         $product->update([
-            'stock'=>($sumIncomeQuantity - $sumOutcomeQuantity)
+            'stock'=>$product->stock + $request->quantity
         ]);
 
         if($updated){

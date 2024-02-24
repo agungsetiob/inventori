@@ -53,7 +53,7 @@ class ProductController extends Controller
 
     public function store (Request $request) {
         $validated = $this->validate($request,[
-            'name'=>['required'],
+            'name'=>['required', 'unique:products'],
             'price'=>['required'],
             //'image'=>['required', 'image','max:1024'],
             'category_id'=>['required'],

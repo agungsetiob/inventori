@@ -17,7 +17,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignId('product_id');
             $table->foreignId('user_id');
-            $table->foreignId('supplier_id');
+            $table->foreignId('supplier_id')->nullable();
             $table->integer('quantity');
             $table->enum('type',['income', 'outcome']);
             $table->enum('status',['pending', 'approved']);

@@ -17,7 +17,19 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' => "Pulpen",
             'category_id'=> 1,
+            'price'=> 5000,
+            'stock'=> 100
+        ]);
+        DB::table('products')->insert([
+            'name' => "Sapu",
+            'category_id'=> 3,
             'price'=> 15000,
+            'stock'=> 100
+        ]);
+        DB::table('products')->insert([
+            'name' => "Tabung Oksigen",
+            'category_id'=> 2,
+            'price'=> 1500000,
             'stock'=> 100
         ]);
     }
