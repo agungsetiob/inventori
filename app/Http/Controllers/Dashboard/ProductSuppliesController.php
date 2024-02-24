@@ -211,9 +211,15 @@ class ProductSuppliesController extends Controller
 
         $sumIncomeQuantity = ProductSupplies::where('type', 'income')->sum('quantity');
         $sumOutcomeQuantity = ProductSupplies::where('type', 'outcome')->sum('quantity');
-        $updated = $product->update([
-            'stock'=>$product->stock + $productSupply->quantity
-        ]);
+        if($productSupply->type === 'outcome'){
+            $updated = $product->update([
+                'stock'=>$product->stock + $productSupply->quantity
+            ]);
+        } else {
+            $updated = $product->update([
+                'stock'=>$product->stock - $productSupply->quantity
+            ]);
+        }
         $deleted = $productSupply->delete();
         if($deleted && $updated){
             session()->flash('message', 'berhasil hapus data');

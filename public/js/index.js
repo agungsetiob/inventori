@@ -10,10 +10,42 @@ const toast = () => {
                 toastContainer.classList.remove("flex");
                 toastContainer.classList.add("hidden");
                 sessionStorage.removeItem("deleted");
-            }, 1500);
+            }, 3500);
         }
-    }, 100);
+    }, 300);
 };
+
+// const deleteModal = (btnDelete, endpoint, message) => {
+//     btnDelete.addEventListener("click", () => {
+//         Swal.fire({
+//             title: "Apakah anda yakin?",
+//             text: message,
+//             icon: "warning",
+//             showCancelButton: true,
+//             confirmButtonColor: "#3085d6",
+//             cancelButtonColor: "#d33",
+//             confirmButtonText: "Yakin",
+//             cancelButtonText: "Batal",
+//         }).then((result) => {
+//             if (result.isConfirmed) {
+//                 fetch(`${endpoint}/${btnDelete.dataset.id}`, {
+//                     method: "DELETE",
+//                     headers: {
+//                         "X-CSRF-TOKEN": csrf,
+//                     },
+//                 })
+//                     .then((response) => {
+//                         return response.json();
+//                     })
+//                     .then((result) => {
+//                         if (result.message) {
+//                             location.reload();
+//                         }
+//                     });
+//             }
+//         });
+//     });
+// };
 
 const deleteModal = (btnDelete, endpoint, message) => {
     btnDelete.addEventListener("click", () => {
@@ -34,18 +66,31 @@ const deleteModal = (btnDelete, endpoint, message) => {
                         "X-CSRF-TOKEN": csrf,
                     },
                 })
-                    .then((response) => {
-                        return response.json();
-                    })
+                    .then((response) => response.json())
                     .then((result) => {
                         if (result.message) {
                             location.reload();
+                        } else if (result.error) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Gagal!',
+                                text: result.message,
+                            });
                         }
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error!',
+                            text: 'Gagal menghapus barang',
+                        });
                     });
             }
         });
     });
 };
+
 
 
 window.onload = toast();

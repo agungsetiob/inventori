@@ -41,7 +41,10 @@ class ProductController extends Controller
 
         if($deletedProduct){
             session()->flash('message', 'berhasil hapus data');
-            return response()->json(['message'=> 'success delete data'],200);
+            return response()->json(['message'=> 'success to delete data'],200);
+        } else {
+            session()->flash('error', 'gagal hapus data');
+            return response()->json(['message'=> 'failed  to delete data'],500);
         }
     }
 

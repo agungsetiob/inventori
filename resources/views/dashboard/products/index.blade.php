@@ -3,12 +3,16 @@
 @section('container')
 
 @if (session('message'))
-   <div id="toast-container" class="hidden fixed z-50 items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x divide-gray-200 rounded border-l-2 border-green-400 shadow top-5 right-5 dark:text-gray-400 dark:divide-gray-700 space-x dark:bg-gray-800" role="alert">
+<div id="toast-container" class="hidden fixed z-50 items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x divide-gray-200 rounded border-l-2 border-green-400 shadow top-5 right-5 dark:text-gray-400 dark:divide-gray-700 space-x dark:bg-gray-800" role="alert">
     <div class=" text-green-400 text-sm font-bold capitalize">{{session()->get('message')}}</div>
+</div>
+@elseif (session('error'))
+<div id="toast-container" class="hidden fixed z-50 items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x divide-gray-200 rounded border-l-2 border-red-400 shadow top-5 right-5 dark:text-gray-400 dark:divide-gray-700 space-x dark:bg-gray-800" role="alert">
+    <div class=" text-red-400 text-sm font-bold capitalize">{{session()->get('error')}}</div>
 </div>
 @endif
     <div class="container px-4">
-        <div class="bg-white mt-5 p-5 rounded-lg">
+        <div class="bg-white mt-1 p-5 rounded-lg">
             <div class="flex justify-between">
                 <div class="text-left">
                     <h2 class="text-gray-600 font-bold">Data Barang</h2>

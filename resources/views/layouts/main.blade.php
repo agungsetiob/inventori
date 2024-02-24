@@ -19,7 +19,7 @@
 <body class="text-black">
 
    {{-- sidebar start --}}
-   <div id="sidebar" class="w-64 bg-gray-900 h-full p-4 fixed top-0 left-0">
+   <div id="sidebar" class="w-64 bg-gradient-to-b from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% h-full p-4 fixed top-0 left-0">
       <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
          <img src="{{url('img/invent.png')}}" alt="logo" class="w-8 h-8 rounded mr-2 object-cover" />
          <span class="text-lg font-bold text-white">Inventori RSUD</span>
@@ -71,7 +71,7 @@
          </li>
 
          @if(Auth::user()->role === 'admin')
-         <li class="mb-1 mt-10 group">
+         <li class="mb-1 mt-5 group">
             <a href="/petugas" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-600 rounded-lg">
                <i class="ri-user-line mr-3 text-lg"></i>
                <span class="text-sm">Data Akun</span>
@@ -99,13 +99,13 @@
          style="background-image: url('img/octagon.png'); background-size: cover; background-position: center;">
          {{-- navbar start --}}
          <div
-            class="bg-white py-2 px-4 flex items-center justify-between shadow-md shadow-black/5 sticky top-0 left-0 z-30">
+            class="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% py-2 px-4 flex items-center justify-between shadow-md shadow-black/5 sticky top-0 left-0 z-30">
             <button id="sidebarToggle" class="md:hidden text-gray-600 focus:outline-none">
                <i class="ri-menu-line text-xl"></i>
             </button>
             <ul class="flex items-center text-sm hidden lg:block">
                <li class="mr-2">
-                  <a href="#" class="text-gray-500 hover:text-gray-600 font-medium">Dashboard</a>
+                  <a href="#" class="text-gray-500 hover:text-gray-600 font-medium" hidden>Dashboard</a>
                </li>
             </ul>
             <div class="mr-2 flex items-center">
