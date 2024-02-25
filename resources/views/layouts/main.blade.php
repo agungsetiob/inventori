@@ -26,45 +26,45 @@
       </a>
       <ul class="mt-4">
          <li class="mb-1 group">
-            <a href="/" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-600 rounded-lg">
+            <a href="/" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-900 rounded-lg">
                <i class="ri-dashboard-3-line mr-3 text-lg"></i>
                <span class="text-sm">Overview</span>
             </a>
          </li>
 
          <li class="mb-1 group">
-            <a href="/barang" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-600 rounded-lg">
+            <a href="/barang" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-900 rounded-lg">
                <i class="ri-archive-2-line mr-3 text-lg"></i>
                <span class="text-sm">Data Barang</span>
             </a>
          </li>
          <li class="mb-1 group">
-            <a href="/supplier" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-600 rounded-lg">
+            <a href="/supplier" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-900 rounded-lg">
                <i class="ri-truck-line mr-3 text-lg"></i>
                <span class="text-sm">Data Supplier</span>
             </a>
          </li>
          <li class="mb-1 group">
-            <a href="/kategori" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-600 rounded-lg">
+            <a href="/kategori" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-900 rounded-lg">
                <i class="ri-store-line mr-3 text-lg"></i>
                <span class="text-sm">Data Kategori</span>
             </a>
          </li>
          <li class="mb-1 mt-5 group">
-            <a href="/barang-masuk" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-600 rounded-lg">
+            <a href="/barang-masuk" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-900 rounded-lg">
                <i class="ri-file-add-fill mr-3 text-lg"></i>
                <span class="text-sm">Barang Masuk</span>
             </a>
          </li>
 
          <li class="mb-1 group">
-            <a href="/barang-permintaan" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-600 rounded-lg">
+            <a href="/barang-permintaan" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-900 rounded-lg">
                <i class="ri-folder-transfer-line mr-3 text-lg"></i>
                <span class="text-sm">Permintaan Barang</span>
             </a>
          </li>
          <li class="mb-1 group">
-            <a href="/approved" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-600 rounded-lg">
+            <a href="/approved" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-900 rounded-lg">
                <i class="ri-folder-reduce-fill mr-3 text-lg"></i>
                <span class="text-sm">Barang Keluar</span>
             </a>
@@ -72,14 +72,14 @@
 
          @if(Auth::user()->role === 'admin')
          <li class="mb-1 mt-5 group">
-            <a href="/petugas" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-600 rounded-lg">
+            <a href="/petugas" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-900 rounded-lg">
                <i class="ri-user-line mr-3 text-lg"></i>
                <span class="text-sm">Data Akun</span>
             </a>
          </li>
 
          <li class="mb-1 group">
-            <a href="/admin" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-600 rounded-lg">
+            <a href="/admin" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-900 rounded-lg">
                <i class="ri-admin-line mr-3 text-lg"></i>
                <span class="text-sm">Data Admin</span>
             </a>
@@ -87,7 +87,7 @@
          @endif
 
          <li class="mb-1 group mt-5">
-            <a href="/logout" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-600 rounded-lg">
+            <a href="/logout" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-900 rounded-lg">
                <i class="ri-logout-circle-line text-lg mr-3"></i>
                <span class="text-sm">Logout</span>
             </a>

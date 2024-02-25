@@ -108,12 +108,12 @@ class ProductSuppliesController extends Controller
         $this->validate($request, [
             'date'=> ['required'],
             'quantity'=>['required'],
-            'product_id'=>['required'],
+            'product'=>['required'],
             'supplier_id'=>['required'],
         ]);
 
        $created = ProductSupplies::create([
-            'product_id'=>$request->product_id,
+            'product_id'=>$request->product,
             'supplier_id'=>$request->supplier_id,
             'user_id'=>Auth::user()->id,
             'date'=>$request->date,
@@ -171,7 +171,7 @@ class ProductSuppliesController extends Controller
         $this->validate($request, [
             'date'=> ['required'],
             'quantity'=>['required'],
-            'product_id'=>['required'],
+            'product'=>['required'],
             //'supplier_id'=>['required'],
         ]);
 
@@ -182,7 +182,7 @@ class ProductSuppliesController extends Controller
 
         if($stockProduct >= 0){
             $created = ProductSupplies::create([
-                'product_id'=>$request->product_id,
+                'product_id'=>$request->product,
                 //'supplier_id'=>$request->supplier_id,
                 'user_id'=>Auth::user()->id,
                 'date'=>$request->date,

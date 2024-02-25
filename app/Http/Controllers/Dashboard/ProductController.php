@@ -59,7 +59,7 @@ class ProductController extends Controller
             'name'=>['required', 'unique:products'],
             'price'=>['required'],
             //'image'=>['required', 'image','max:1024'],
-            'category_id'=>['required'],
+            'category'=>['required'],
         ]);
 
         //$imagePath = $request->file('image')->store('public/products');
@@ -68,7 +68,7 @@ class ProductController extends Controller
             'name'=>$request->name,
             'price'=>$request->price,
             //'image'=>$imagePath,
-            'category_id'=>$request->category_id,
+            'category_id'=>$request->category,
         ]);
         if($created){
             return redirect('/barang')->with('message', 'berhasil menambahkan data');

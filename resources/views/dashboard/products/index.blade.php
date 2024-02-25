@@ -12,21 +12,21 @@
 </div>
 @endif
     <div class="container px-4">
-        <div class="bg-white mt-1 p-5 rounded-lg overflow-x-auto">
+    <h2 class="text-gray-900 font-bold">Data Barang</h2>
+        <div class="bg-white mt-5 p-5 rounded-lg overflow-x-auto">
             <div class="flex flex-col md:flex-row justify-between">
                 <div class="text-left mb-4 md:mb-0">
-                    <h2 class="text-gray-600 font-bold">Data Barang</h2>
                     @if(Auth::user()->role === 'admin')
                     <a href="/input-barang" 
                     class="
                     text-sm inline-block bg-gray-700 
                     hover:bg-gradient-to-r hover:from-indigo-500 
                     hover:via-cyan-500 hover:to-sky-500 text-white 
-                    mt-2 md:mt-0 md:mr-2 px-2 py-1 min-w-max 
+                    mt-2 md:mt-0 md:mr-2 px-2 py-2 min-w-max 
                     flex-shrink-0 transition-colors duration-300">
                     <i class="ri-add-fill"></i> Input Barang</a>
                     @endif
-                    <a class="text-sm inline-block bg-gray-700 hover:bg-gradient-to-r hover:from-indigo-500 hover:via-cyan-500 hover:to-sky-500 text-white mt-2 md:mt-0 md:mr-2 px-2 py-1 min-w-max flex-shrink-0 transition-colors duration-300" href="/excel/products"><i class="ri-file-excel-line"></i> Export Excel</a>
+                    <a class="text-sm inline-block bg-gray-700 hover:bg-gradient-to-r hover:from-indigo-500 hover:via-cyan-500 hover:to-sky-500 text-white mt-2 md:mt-0 md:mr-2 px-2 py-2 min-w-max flex-shrink-0 transition-colors duration-300" href="/excel/products"><i class="ri-file-excel-line"></i> Export Excel</a>
                 </div>
                 <form method="get" action="/barang" class="form">
                     <div class="flex">
@@ -56,7 +56,7 @@
                         $noProduct = 1;
                     @endphp
                     @foreach ($products as $product)
-                        <tr class="border-b p-2">
+                    <tr class="border-b p-2 hover:bg-gray-100">
                         <td class="p-2">{{$noProduct}}</td>
                         <td class="p-2">{{$product->name}}</td>
                         <td class="p-2">Rp.{{number_format($product->price,0) }}</td>

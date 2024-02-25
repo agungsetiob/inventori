@@ -12,14 +12,21 @@
 </div>
 @endif
     <div class="container px-4">
+    <h2 class="text-gray-900 font-bold">Data Permintaan Barang</h2>
         <div class="bg-white mt-5 p-5 rounded-lg overflow-x-auto">
             <div class="flex flex-col md:flex-row justify-between">
                 <div class="text-left mb-4 md:mb-0">
-                    <h2 class="text-gray-600 font-bold">Data Permintaan Barang</h2>
                     @if(Auth::user()->role === 'admin')
-                    <a href="/input-barang-keluar" class="text-sm inline-block bg-gray-700 text-white mt-2 md:mt-0 md:mr-2 px-2 py-1"><i class="ri-add-fill"></i> Input Barang Keluar</a>
+                    <a href="/input-barang-keluar" 
+                    class="text-sm inline-block bg-gray-700 
+                    hover:bg-gradient-to-r hover:from-indigo-500 hover:via-cyan-500 
+                    hover:to-sky-500 text-white mt-2 md:mt-0 md:mr-2 px-2 py-2 
+                    min-w-max flex-shrink-0 transition-colors duration-300"><i class="ri-add-fill"></i> Input Barang Keluar</a>
                     @elseif(Auth::user()->role === 'officer')
-                    <a href="/input-barang-keluar" class="text-sm inline-block bg-gray-700 text-white mt-2 md:mt-0 md:mr-2 px-2 py-1"><i class="ri-add-fill"></i> Input Barang</a>
+                    <a href="/input-barang-keluar" class="text-sm inline-block bg-gray-700 
+                    hover:bg-gradient-to-r hover:from-indigo-500 hover:via-cyan-500 
+                    hover:to-sky-500 text-white mt-2 md:mt-0 md:mr-2 px-2 py-2 
+                    min-w-max flex-shrink-0 transition-colors duration-300"><i class="ri-add-fill"></i> Input Barang</a>
                     @endif
                 </div>
                 <form method="get" action="/barang-keluar/" class="form">

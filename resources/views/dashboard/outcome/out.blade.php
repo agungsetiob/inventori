@@ -32,7 +32,7 @@
                         {{-- <td class="p-2">Nama Supplier</td> --}}
                         <td class="p-2">Jumlah</td>
                         <td class="p-2">Tanggal</td>
-                        <td class="p-2">Aksi</td>
+                        <td class="p-2"></td>
                     </tr>
                 </thead>
                 <tbody>
