@@ -23,7 +23,7 @@ class AuthController extends Controller
 
         $user = User::where('email', $request->email)->first();
         if(!$user || !Hash::check($request->password, $user->password)){
-            return redirect('/login')->with('error', 'Email or Password is not valid !!');
+            return redirect('/login')->with('error', 'Email or Password is not valid');
         } else {
             Auth::login($user, false);
             return redirect('/');

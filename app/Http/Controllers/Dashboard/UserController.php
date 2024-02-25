@@ -40,7 +40,7 @@ class UserController extends Controller
     public function storeOfficer (Request $request) {
         $this->validate($request, [
                 'name'=>['required'],
-                'email'=>['required'],
+                'email'=>['required', 'unique:users'],
                 'password'=>['required']
         ]);
 
@@ -64,7 +64,7 @@ class UserController extends Controller
     public function updateOfficer (Request $request, $id) {
         $this->validate($request, [
                 'name'=>['required'],
-                'email'=>['required'],
+                'email'=>['required', 'unique:users'],
                 'password'=>['required']
         ]);
 
@@ -96,7 +96,7 @@ class UserController extends Controller
     public function storeAdmin (Request $request) {
         $this->validate($request, [
                 'name'=>['required'],
-                'email'=>['required'],
+                'email'=>['required', 'unique:users'],
                 'password'=>['required']
         ]);
 
@@ -120,7 +120,7 @@ class UserController extends Controller
     public function updateAdmin (Request $request, $id) {
     $this->validate($request, [
             'name'=>['required'],
-            'email'=>['required'],
+            'email'=>['required', 'unique:users'],
     ]);
 
     $admin = User::findOrFail($id);

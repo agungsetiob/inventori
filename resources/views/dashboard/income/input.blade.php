@@ -25,11 +25,14 @@
             <div class="flex gap-1 mt-3">
                 <div class="w-full">
                     <label class="text-sm text-gray-600"  for="category">Nama Supplier</label>
-                    <div class="border">
+                    <div class="border-2 @error('supplier')  border-red-400  @enderror">
                         {{-- select with choice js --}}
-                        <select name="supplier_id" class="select-supplier text-black" id="">
+                        <select name="supplier" class="select-supplier text-black" id="">
                         </select>
                     </div>
+                    @error('supplier')
+                        <p class="italic text-red-500 text-sm mt-1">{{$message}}</p>
+                    @enderror
                 </div>
             </div>
             <div class="mt-3">
@@ -63,18 +66,5 @@
 
 @section('js')
     <script src="{{ asset('js/supplies/input.js') }}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var selectProduct = new Choices('.select-product', {
-                // Add any configuration options here
-            });
-
-            var oldValue = '{{ old("product") }}';
-
-            if (oldValue) {
-                selectProduct.setChoiceByValue(oldValue);
-            }
-        });
-    </script>
 @endsection
 

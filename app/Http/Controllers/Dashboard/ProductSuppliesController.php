@@ -109,12 +109,12 @@ class ProductSuppliesController extends Controller
             'date'=> ['required'],
             'quantity'=>['required'],
             'product'=>['required'],
-            'supplier_id'=>['required'],
+            'supplier'=>['required'],
         ]);
 
        $created = ProductSupplies::create([
             'product_id'=>$request->product,
-            'supplier_id'=>$request->supplier_id,
+            'supplier_id'=>$request->supplier,
             'user_id'=>Auth::user()->id,
             'date'=>$request->date,
             'quantity'=>$request->quantity,

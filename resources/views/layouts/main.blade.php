@@ -19,7 +19,8 @@
 <body class="text-black">
 
    {{-- sidebar start --}}
-   <div id="sidebar" class="w-64 bg-gradient-to-b from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% h-full p-4 fixed top-0 left-0">
+   <div id="sidebar" class="w-64 bg-gradient-to-b from-indigo-500 
+   from-10% via-sky-500 via-30% to-emerald-500 to-90% h-full p-4 fixed top-0 left-0 z-40">
       <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
          <img src="{{url('img/invent.png')}}" alt="logo" class="w-8 h-8 rounded mr-2 object-cover" />
          <span class="text-lg font-bold text-white">Inventori RSUD</span>
@@ -99,7 +100,10 @@
          style="background-image: url('img/octagon.png'); background-size: cover; background-position: center;">
          {{-- navbar start --}}
          <div
-            class="bg-gradient-to-r from-indigo-500 from-15% via-sky-500 via-30% to-emerald-500 to-90% py-2 px-4 flex items-center justify-between shadow-md shadow-black/5 sticky top-0 left-0 z-30">
+            class="bg-gradient-to-r from-indigo-500 from-15% 
+            via-sky-500 via-30% to-emerald-500 to-90% py-2 
+            px-4 flex items-center justify-between shadow-md 
+            shadow-black/5 sticky top-0 left-0 z-50">
             <button id="sidebarToggle" class="md:hidden text-gray-900 focus:outline-none">
                <i class="ri-menu-line text-xl"></i>
             </button>
