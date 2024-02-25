@@ -8,9 +8,9 @@
 </div>
 @endif
     <div class="container px-4">
-        <div class="bg-white mt-5 p-5 rounded-lg">
-            <div class="flex justify-between">
-                <div class="text-left">
+        <div class="bg-white mt-5 p-5 rounded-lg overflow-x-auto">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="text-left mb-4 md:mb-0">
                     <h2 class="text-gray-600 font-bold">Data Barang Keluar</h2>
                 </div>
                 <form method="get" action="/barang-keluar/" class="form">
@@ -18,12 +18,12 @@
                         <div class="border p-1 px-2 rounded-l">
                           <input id="search" name="search" class="focus:outline-none text-sm" type="text" placeholder="search">
                         </div>
-                        <button type="submit" class="text-sm bg-gray-700 p-2 rounded-r text-white h-full">cari</button>
+                        <button type="submit" class="text-sm bg-gray-700 p-2 md:p-2 rounded-r text-white h-full md:h-auto">cari</button>
                     </div>
                 </form>
             </div>
 
-            <table class="w-full mt-5 text-sm text-gray-600">
+            <table class="w-full mt-5 text-sm text-gray-600 table-auto">
                 <thead>
                     <tr class="font-bold border-b-2 p-2">
                         <td class="p-2">No</td>

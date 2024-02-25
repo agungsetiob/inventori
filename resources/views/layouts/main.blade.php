@@ -99,8 +99,8 @@
          style="background-image: url('img/octagon.png'); background-size: cover; background-position: center;">
          {{-- navbar start --}}
          <div
-            class="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% py-2 px-4 flex items-center justify-between shadow-md shadow-black/5 sticky top-0 left-0 z-30">
-            <button id="sidebarToggle" class="md:hidden text-gray-600 focus:outline-none">
+            class="bg-gradient-to-r from-indigo-500 from-15% via-sky-500 via-30% to-emerald-500 to-90% py-2 px-4 flex items-center justify-between shadow-md shadow-black/5 sticky top-0 left-0 z-30">
+            <button id="sidebarToggle" class="md:hidden text-gray-900 focus:outline-none">
                <i class="ri-menu-line text-xl"></i>
             </button>
             <ul class="flex items-center text-sm hidden lg:block">

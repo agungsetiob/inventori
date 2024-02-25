@@ -12,14 +12,14 @@
 </div>
 @endif
     <div class="container px-4">
-        <div class="bg-white mt-5 p-5 rounded-lg">
-            <div class="flex justify-between">
-                <div class="text-left">
+        <div class="bg-white mt-5 p-5 rounded-lg overflow-x-auto">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="text-left mb-4 md:mb-0">
                     <h2 class="text-gray-600 font-bold">Data Permintaan Barang</h2>
                     @if(Auth::user()->role === 'admin')
-                    <a href="/input-barang-keluar" class="text-sm bg-gray-700 text-white text-center block mt-2 px-2 py-1"><i class="ri-add-fill"></i> Input Barang Keluar</a>
+                    <a href="/input-barang-keluar" class="text-sm inline-block bg-gray-700 text-white mt-2 md:mt-0 md:mr-2 px-2 py-1"><i class="ri-add-fill"></i> Input Barang Keluar</a>
                     @elseif(Auth::user()->role === 'officer')
-                    <a href="/input-barang-keluar" class="text-sm bg-gray-700 text-white text-center block mt-2 px-2 py-1"><i class="ri-add-fill"></i> Input Barang</a>
+                    <a href="/input-barang-keluar" class="text-sm inline-block bg-gray-700 text-white mt-2 md:mt-0 md:mr-2 px-2 py-1"><i class="ri-add-fill"></i> Input Barang</a>
                     @endif
                 </div>
                 <form method="get" action="/barang-keluar/" class="form">
@@ -27,12 +27,12 @@
                         <div class="border p-1 px-2 rounded-l">
                           <input id="search" name="search" class="focus:outline-none text-sm" type="text" placeholder="search">
                         </div>
-                        <button type="submit" class="text-sm bg-gray-700 p-2 rounded-r text-white h-full">cari</button>
+                        <button type="submit" class="text-sm bg-gray-700 p-2 md:p-2 rounded-r text-white h-full md:h-auto">cari</button>
                     </div>
                 </form>
             </div>
 
-            <table class="w-full mt-5 text-sm text-gray-600">
+            <table class="w-full mt-5 text-sm text-gray-600 table-auto">
                 <thead>
                     <tr class="font-bold border-b-2 p-2">
                         <td class="p-2">No</td>
